@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg-primary: #050b0f;
+    --bg-gradient-start: #16333a;
+    --bg-gradient-mid: #071317;
+    --bg-gradient-end: #050b0e;
+    --card-bg: rgba(15, 23, 42, 0.86);
+    --card-border: rgba(148, 163, 184, 0.35);
+    --accent: #06b6d4;
+    --accent-soft: #22d3ee;
+    --text-main: #e5e7eb;
+    --text-muted: #9ca3af;
+    --pill-bg: rgba(15, 23, 42, 0.76);
+}
+
+/* Root app background */
+.stApp {
+    background: radial-gradient(circle at top left, var(--bg-gradient-start) 0%, var(--bg-gradient-mid) 45%, var(--bg-gradient-end) 100%);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+}
+
+/* Layout containers */
+.block-container {
+    padding-top: 1.5rem;
+}
+
+/* Header / hero */
+.hero-block {
+    padding: 0.2rem 0 0.4rem 0;
+}
+
+.main-title {
+    font-size: 2.35rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #f9fafb;
+    margin-bottom: 0.15rem;
+}
+
+.subtitle {
+    font-size: 0.96rem;
+    color: var(--text-muted);
+    margin-bottom: 0rem;
+}
+
+.logo-pill {
+    width: 52px;
+    height: 52px;
+    border-radius: 999px;
+    background: radial-gradient(circle at 30% 20%, #22d3ee 0%, #0369a1 55%, #020617 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.8);
+}
+
+.context-pill {
+    background: var(--pill-bg);
+    border-radius: 999px;
+    padding: 0.55rem 0.95rem;
+    border: 1px solid rgba(148, 163, 184, 0.45);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.12rem;
+}
+
+.pill-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #9ca3af;
+}
+
+.pill-value {
+    font-size: 0.8rem;
+    color: #e5e7eb;
+}
+
+/* Intro text */
+.page-intro {
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Sidebar */
+[data-testid="stSidebar"] {
+    background: rgba(5, 14, 18, 0.96);
+    backdrop-filter: blur(18px);
+    border-right: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.sidebar-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #f9fafb;
+    margin-bottom: 0.1rem;
+}
+
+.sidebar-subtitle {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.9rem;
+}
+
+.sidebar-section-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #9ca3af;
+    margin-top: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.sidebar-footer {
+    margin-top: 0.8rem;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+.sidebar-footer-title {
+    font-size: 0.83rem;
+    font-weight: 500;
+    color: #e5e7eb;
+    margin-bottom: 0.2rem;
+}
+
+.sidebar-list {
+    padding-left: 1.05rem;
+    margin: 0.1rem 0;
+}
+
+.sidebar-list li {
+    margin-bottom: 0.16rem;
+}
+
+/* Inputs */
+.stTextInput > div > div,
+.stSelectbox > div > div {
+    background-color: rgba(15, 23, 42, 0.9);
+    border-radius: 10px;
+    border: 1px solid var(--card-border);
+}
+
+.stTextInput > div > div input,
+.stSelectbox > div > div {
+    color: var(--text-main);
+}
+
+/* Buttons */
+.stButton > button {
+    background: var(--accent);
+    color: #ffffff !important;
+    border: 1px solid var(--card-border);
+    font-weight: 600;
+    border-radius: 999px;
+    padding: 0.4rem 1.1rem;
+    transition: all 0.18s ease;
+    font-size: 0.9rem;
+}
+
+.stButton > button:hover {
+    background: var(--accent-soft);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(34, 211, 238, 0.30);
+}
+
+/* Metrics */
+.stMetric > label {
+    color: #9ca3af !important;
+    font-weight: 500;
+}
+
+.stMetric > div > div {
+    color: #22d3ee !important;
+    font-weight: 600;
+}
+
+/* Section titles */
+.section-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #f9fafb;
+    margin-top: 1.25rem;
+    margin-bottom: 0.4rem;
+}
+
+.section-divider {
+    border-top: 1px solid rgba(148, 163, 184, 0.22);
+    margin: 0.7rem 0 0.4rem;
+}
+
+/* Expanders (article cards) */
+.stExpander {
+    border-radius: 14px !important;
+    background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.96));
+    border: 1px solid rgba(148, 163, 184, 0.28);
+    margin-bottom: 0.45rem;
+}
+
+.stExpander > div {
+    border-radius: 14px !important;
+}
+
+.stExpander > div > label {
+    color: #e5e7eb;
+    font-weight: 500;
+    font-size: 0.93rem;
+}
+
+/* Article content */
+.article-meta {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    margin-bottom: 0.35rem;
+    font-size: 0.78rem;
+    color: #9ca3af;
+}
+
+.article-source {
+    padding: 0.1rem 0.45rem;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.article-date {
+    opacity: 0.85;
+}
+
+.article-description {
+    font-size: 0.88rem;
+    color: #e5e7eb;
+    margin-bottom: 0.35rem;
+}
+
+.article-link {
+    font-size: 0.82rem;
+    color: #22d3ee;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(34, 211, 238, 0.6);
+}
+
+.article-link:hover {
+    color: #67e8f9;
+    border-bottom-style: solid;
+}
+
+.article-image-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.article-image {
+    max-width: 100%;
+    border-radius: 12px;
+    border: 1px solid rgba(148, 163, 184, 0.45);
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.8);
+}
+
+/* Empty states */
+.empty-state {
+    margin-top: 1.4rem;
+    padding: 1rem 1.1rem;
+    border-radius: 14px;
+    background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.93));
+    border: 1px dashed rgba(148, 163, 184, 0.3);
+}
+
+.empty-state-initial {
+    margin-top: 1.8rem;
+}
+
+.empty-title {
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: #f9fafb;
+    margin-bottom: 0.22rem;
+}
+
+.empty-subtitle {
+    font-size: 0.85rem;
+    color: #9ca3af;
+}
+
+/* Markdown text */
+.element-container .stMarkdown {
+    color: #e5e7eb;
+}
+
+/* Headings & labels */
+.stMarkdown h2,
+.stMarkdown h3,
+label {
+    color: #e5e7eb;
+}
