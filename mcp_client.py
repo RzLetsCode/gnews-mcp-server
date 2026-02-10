@@ -68,7 +68,7 @@ async def call_gnews_mcp(
     if not api_key:
         raise RuntimeError("Environment variable GNEWS_API_KEY is not set.")
 
-    server_path = os.path.join(os.path.dirname(__file__), "main.py")
+    server_path = os.path.join(os.path.dirname(__file__), "mcp_server.py")
     server_params = StdioServerParameters(
         command=sys.executable,
         args=[server_path],
