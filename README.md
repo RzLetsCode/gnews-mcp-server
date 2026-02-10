@@ -12,6 +12,8 @@ A Model Context Protocol (MCP) server that provides access to the GNews API for 
 - [Running the Server](#running-the-server)
 - [Integration](#integration-with-mcp-clients)
 - [API Summary](#api-summary)
+- - [Output Format](#output-format)
+- [Before/After UI Preview](#beforeafter-ui-preview)
 - [Advanced Queries](#advanced-query-capabilities)
 - [Error Handling](#error-handling-and-rate-limits)
 - [Use Cases](#example-use-cases)
@@ -209,6 +211,68 @@ Any MCP-compatible client that supports stdio transport can connect to the GNews
 **Purpose**: Retrieve current trending news by category and region.
 
 The response structure is similar to `search_news`, focused on category-specific trending articles.
+
+## Output Format
+
+The MCP tools return a **normalized, structured JSON** payload that is easy to consume from any client.
+
+### Common top-level fields
+
+- `success`: Boolean indicating whether the request finished successfully
+- `query`: Final query string executed against GNews
+- `totalArticles`: Total number of articles returned by GNews for the query
+- `articles`: List of article objects (see below)
+- `parameters_used`: Echo of the validated and normalized parameters used in the call
+
+### Article object structure
+
+Each entry in `articles` follows the same shape:
+
+```json
+{
+  "title": "Article title",
+  "description": "Short summary of the article",
+  "url": "https://source-website.com/article-path",
+  "source": "SourceName",
+  "publishedAt": "2024-09-22T10:00:00Z",
+  "image": "https://image-url-if-available-or-null"
+}
+```
+
+### Error response structure
+
+Errors are also returned in a structured JSON format so clients can handle them programmatically.
+
+```json
+{
+  "success": false,
+  "error": "Invalid language code",
+  "query": "Apple AND iPhone",
+  "parameters_used": {
+    "lang": "xx",
+    "country": "us",
+    "max": 10
+  }
+}
+```
+
+This makes it clear at a glance whether the operation succeeded and what parameters were actually used.
+
+## Before/After UI Preview
+
+You can use the included images to understand how the MCP integration looks in a typical client UI.
+
+### Before search
+
+![Before search](./images/before_search.png)
+
+This shows the initial state of the client before triggering any `search_news` or `get_top_headlines` call.
+
+### After search
+
+![After search](./images/after_search.png)
+
+This shows the rendered results after a search, where the **structured JSON output** is transformed into a clean, human-readable news list.
 
 ## Advanced Query Capabilities
 
