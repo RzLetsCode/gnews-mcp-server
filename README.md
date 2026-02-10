@@ -10,6 +10,7 @@ A Model Context Protocol (MCP) server that provides access to the GNews API for 
 - [Features](#features)
 - [Installation](#installation-and-setup)
 - [Running the Server](#running-the-server)
+- - [Quick Start (Local Demo UI)](#quick-start-local-demo-ui)
 - [Integration](#integration-with-mcp-clients)
 - [API Summary](#api-summary)
 - - [Output Format](#output-format)
@@ -162,6 +163,50 @@ uv run main.py
 
 Once started, the server listens on stdio for MCP requests from compatible clients and returns structured JSON responses.
 
+
+## Quick Start (Local Demo UI)
+
+This repository includes a minimal MCP client built with Streamlit so you can quickly test the GNews MCP Server end‑to‑end on your machine.
+
+### 1. Start the MCP server
+
+Make sure you have installed dependencies and set your `GNEWS_API_KEY` environment variable as described in the Installation section.
+
+Then start the server:
+
+```bash
+python mcp_server.py
+```
+
+You should see logs similar to:
+
+```text
+2026-02-11 00:06:25,388 - __main__ - INFO - Starting GNews MCP Server...
+2026-02-11 00:06:25,388 - __main__ - INFO - GNews API key found
+```
+
+At this point, the MCP server is ready to accept requests from MCP‑compatible clients.
+
+### 2. Launch the Streamlit MCP client
+
+In a separate terminal (with the same virtual environment activated), run:
+
+```bash
+streamlit run .\\mcp_client.py
+```
+
+Streamlit will start a local web app and show something like:
+
+```text
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.1.11:8501
+```
+
+Open the Local URL in your browser to interact with the MCP client UI, trigger `search_news` or `get_top_headlines`, and see how the structured JSON responses are rendered as a human‑friendly news feed.
+
+> Tip: Keep the MCP server terminal open while you use the Streamlit UI so you can see request/response logs and error messages.
 ## Integration with MCP Clients
 
 ### Claude Desktop
