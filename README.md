@@ -153,12 +153,12 @@ The GNews MCP Server runs as a standard MCP stdio server.
 
 **Development mode**:
 ```bash
-python main.py
+python mcp_server.py
 ```
 
 **Using uv**:
 ```bash
-uv run main.py
+uv run mcp_server.py
 ```
 
 Once started, the server listens on stdio for MCP requests from compatible clients and returns structured JSON responses.
@@ -216,7 +216,7 @@ To integrate with Claude Desktop:
 1. Update `claude_desktop_config.json`
 2. Add an entry under `mcpServers` named `gnews`
 3. Set `command` to `python`
-4. Set `args` to the absolute path to `main.py` in the gnews-mcp-server repository
+4. Set `args` to the absolute path to `mcp_server.py` in the gnews-mcp-server repository
 5. Pass the `GNEWS_API_KEY` value through the `env` field
 
 After configuration, Claude Desktop can call `search_news`, `get_top_headlines`, and use the resources during conversations.
